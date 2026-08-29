@@ -36,7 +36,8 @@ export default function Hero() {
   return (
     <section
       id="home"
-        className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0b0d0c] text-[#f4f0e8]"    >
+      className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0b0d0c] text-[#f4f0e8]"
+    >
       {/* Fast-loading optimized poster image */}
       <Image
         src="/images/passu-cones.jpg"
@@ -96,11 +97,11 @@ export default function Hero() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.65 }}
             className="max-w-full overflow-hidden text-[15vw] font-medium leading-[0.82] tracking-[-0.07em] sm:text-[14vw] md:text-[10vw]"
-            >
+          >
             THE
             <br />
             MOUNTAINS
-        </motion.h1>
+          </motion.h1>
 
           {/* Description + CTA */}
           <motion.div
@@ -114,14 +115,35 @@ export default function Hero() {
               Pakistan&apos;s extraordinary north.
             </p>
 
+            {/* Begin Journey */}
             <a
               href="#story"
-              className="group flex w-fit items-center gap-4 border border-white/50 bg-black/10 px-5 py-3.5 text-[10px] uppercase tracking-[0.2em] backdrop-blur-sm transition-all hover:bg-white hover:text-black sm:px-6 sm:py-4 sm:text-xs sm:tracking-[0.25em]"
+              className="group relative flex w-fit items-center gap-4 overflow-hidden rounded-full border border-white/30 bg-white/[0.06] px-6 py-3.5 text-[10px] uppercase tracking-[0.2em] text-white backdrop-blur-md transition-all duration-500 hover:border-white/60 hover:bg-white/[0.12] hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] sm:px-7 sm:py-4 sm:text-xs sm:tracking-[0.25em]"
             >
-              Begin Journey
+              {/* Soft animated light sweep */}
+              <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/[0.08] to-transparent transition-transform duration-1000 group-hover:translate-x-full" />
 
-              <span className="transition-transform duration-300 group-hover:translate-x-2">
-                →
+              {/* Button text */}
+              <span className="relative">
+                Begin Journey
+              </span>
+
+              {/* Clean SVG arrow */}
+              <span className="relative flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/20 transition-all duration-500 group-hover:translate-x-1 group-hover:border-white/50">
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                  className="h-3.5 w-3.5"
+                >
+                  <path
+                    d="M3 10h13M10.5 4.5 16 10l-5.5 5.5"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </span>
             </a>
           </motion.div>

@@ -3,6 +3,7 @@ import StorySection from "@/components/StorySection";
 import MountainReveal from "@/components/MountainReveal";
 import Destinations from "@/components/Destinations";
 import Experiences from "@/components/Experiences";
+import LuqmanStory from "@/components/LuqmanStory";
 import Contact from "@/components/Contact";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -21,19 +22,16 @@ const structuredData = {
   url: siteUrl,
   description:
     "Karakoram Trails by Luqman offers mountain journeys and tourism experiences across northern Pakistan, including Hunza, Passu, Gilgit-Baltistan and surrounding destinations.",
-  image: `${siteUrl}/images/passu-cones-optimized.jpg`,
-
+  image: `${siteUrl}/images/passu-cones.jpg`,
   sameAs: [
     "https://www.instagram.com/malik98765432100000",
     "https://www.facebook.com/KarakoramTrailsByLuqman",
     "https://youtube.com/@karakoramtrailsbyluqman",
   ],
-
   areaServed: {
     "@type": "Country",
     name: "Pakistan",
   },
-
   knowsAbout: [
     "Karakoram Mountains",
     "Northern Pakistan",
@@ -50,7 +48,6 @@ const structuredData = {
     "Adventure travel",
     "Trekking in Pakistan",
   ],
-
   serviceType: [
     "Mountain Tours",
     "Adventure Tours",
@@ -77,6 +74,7 @@ export default function Home() {
         <MountainReveal />
         <Destinations />
         <Experiences />
+        <LuqmanStory />
         <Contact />
         <SocialLinks />
       </main>
