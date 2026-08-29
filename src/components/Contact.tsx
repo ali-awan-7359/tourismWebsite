@@ -1,4 +1,13 @@
 export default function Contact() {
+  const whatsappNumber = "923442084737";
+
+  const whatsappMessage =
+    "Hello! Welcome to Karakorum Trails. I'm interested in planning a journey through the beautiful northern areas of Pakistan. I'd love to know more about your destinations, packages, and available dates.";
+
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    whatsappMessage,
+  )}`;
+
   return (
     <section
       id="contact"
@@ -21,7 +30,9 @@ export default function Contact() {
 
         <div className="mt-12">
           <a
-            href="mailto:hello@karakorumtrails.com"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-5 border-b border-white/30 pb-4 text-xs uppercase tracking-[0.25em] transition-colors hover:border-white sm:text-sm"
           >
             Plan your journey
