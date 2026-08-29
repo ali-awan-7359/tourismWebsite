@@ -1,24 +1,67 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 import Navigation from "./Navigation";
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoReady, setVideoReady] = useState(false);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    const loadVideo = () => {
+      video.load();
+
+      const playVideo = async () => {
+        try {
+          await video.play();
+        } catch {
+          // If autoplay is blocked, keep the poster image visible.
+        }
+      };
+
+      playVideo();
+    };
+
+    const timeout = window.setTimeout(loadVideo, 800);
+
+    return () => window.clearTimeout(timeout);
+  }, []);
+
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden bg-[#0b0d0c] text-[#f4f0e8]"
-    >
+        className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#0b0d0c] text-[#f4f0e8]"    >
+      {/* Fast-loading optimized poster image */}
+      <Image
+        src="/images/passu-cones.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        aria-hidden="true"
+        className="object-cover"
+      />
+
       {/* Cinematic Video Background */}
       <motion.video
+        ref={videoRef}
         initial={{ scale: 1.06, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-        autoPlay
+        animate={{
+          scale: videoReady ? 1 : 1.06,
+          opacity: videoReady ? 1 : 0,
+        }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         muted
         loop
         playsInline
-        poster="/images/passu-cones.jpg"
+        preload="none"
+        onCanPlay={() => setVideoReady(true)}
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
@@ -52,12 +95,12 @@ export default function Hero() {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, delay: 0.65 }}
-            className="text-[18vw] font-medium leading-[0.82] tracking-[-0.07em] sm:text-[14vw] md:text-[10vw]"
-          >
+            className="max-w-full overflow-hidden text-[15vw] font-medium leading-[0.82] tracking-[-0.07em] sm:text-[14vw] md:text-[10vw]"
+            >
             THE
             <br />
             MOUNTAINS
-          </motion.h1>
+        </motion.h1>
 
           {/* Description + CTA */}
           <motion.div
