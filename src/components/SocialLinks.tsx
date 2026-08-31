@@ -7,7 +7,7 @@ const socials = [
     name: "Instagram",
     handle: "Karakoram Trails By Luqman",
     description: "Visual stories from the north.",
-    href: "https://www.instagram.com/malik98765432100000?igsi=eG9uaHNvN2FjNnBn",
+    href: "https://www.instagram.com/karakoram_trails_by_luqman?igsi=eG9uaHNvN2FjNnBn",
     icon: (
       <svg
         viewBox="0 0 24 24"
